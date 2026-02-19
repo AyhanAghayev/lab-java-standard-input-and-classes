@@ -4,10 +4,12 @@ public class Intern extends Employee {
     private static final int MAX_SALARY = 20_000;
 
     public Intern(String name, String email, byte age, int salary) {
-        super(name, email, age, salaryValidation(salary));
+        super(name, email, age, salary);
     }
 
-    private static int salaryValidation(int salary) {
+    @Override
+    protected int salaryValidation(int salary) {
+        salary = super.salaryValidation(salary);
         if (salary > MAX_SALARY) {
             System.err.println("Salary can't be bigger than max salary!");
             return MAX_SALARY;

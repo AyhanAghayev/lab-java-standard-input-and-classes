@@ -25,7 +25,6 @@ public class Main {
         employees.add(new Intern("Miserable Guy", "guyintern@company.com", (byte) 18, 0));
 
         File file = new File("employees.txt");
-        Scanner scanner = new Scanner(file);
         try(FileWriter writer = new FileWriter(file, false)) {
             for (Employee employee : employees) {
                 writer.write(employee.returnData());

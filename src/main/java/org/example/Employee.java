@@ -9,15 +9,19 @@ public class Employee {
     private static int counter = 0;
 
     public Employee(String name, String email, byte age, int salary) {
-        id += counter++;
+        id = counter++;
         this.name = name;
         this.email = email;
         this.age = age;
-        this.salary = salary;
+        this.salary = salaryValidation(salary);
+    }
 
+    protected int salaryValidation(int salary) {
         if (salary < 0) {
             System.err.println("Salary can't be below zero!");
+            return 0;
         }
+        return salary;
     }
 
     public Employee() {
@@ -59,7 +63,7 @@ public class Employee {
     }
 
     public int setSalary(int salary) {
-        this.salary = salary;
+        this.salary = salaryValidation(salary);
         return this.salary;
     }
 
